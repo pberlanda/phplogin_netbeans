@@ -12,6 +12,12 @@ INSERT INTO accounts (id,username,password,email) VALUES (1,"paolo","123456","be
 alter table accounts add COLUMN nome varchar(30) not null;
 alter table accounts add COLUMN cognome varchar(30) not null
 
+update accounts SET
+	nome = 'paolo',
+    cognome =' berlanda'
+WHERE
+	username = 'paolo'
+
 -- aggiunta data di nascita
 alter table accounts add COLUMN data_nascita datetime null
 
