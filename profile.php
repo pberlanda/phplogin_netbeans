@@ -18,14 +18,22 @@ if (mysqli_connect_errno()) {
 };
 
 // nella session non c'è la email, la leggo al db
-$stmt = $con->prepare('SELECT password, email FROM accounts WHERE id = ?');
+$stmt = $con->prepare('SELECT password, email, nome, cognome, data_nascita FROM accounts WHERE id = ?');
 
 // uso ID account per trovare le info
 $stmt->bind_param('i', $_SESSION['id']);
 $stmt->execute();
-$stmt->bind_result($password, $email);
+$stmt->bind_result($password, $email, $nome, $cognome, $data_nascita);
 $stmt->fetch();
 $stmt->close();
+
+// formato della data
+// 1. converto la data estratta dal db in oggetto dara pho
+// 2. applico il formato
+                        
+$tmpDataNascita = DateTime::createFromFormat('Y-m-d H:i:s', $data_nascita);
+$formatDataNascita = $tmpDataNascita->format('d-m-Y');
+
 ?>
 <!DOCTYPE>
 <html>
@@ -55,6 +63,18 @@ $stmt->close();
                     <tr>
                         <td>Password:</td>
                         <td><?=$password?></td>
+                    </tr>
+                    <tr>
+                        <td>Nome:</td>
+                        <td><?=$nome?></<td>
+                    </tr>
+                    <tr>
+                        <td>Cognome:</td>
+                        <td><?=$cognome?></<td>
+                    </tr>
+                    <tr>
+                        <td>Data di nascita:</td>
+                        <td><?=$formatDataNascita?></<td>
                     </tr>
                     <tr>
                         <td>Email:</td>
