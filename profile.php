@@ -82,6 +82,47 @@ $formatDataNascita = $tmpDataNascita->format('d-m-Y');
                     </tr>
                 </table>
             </div>
+            
+            
+            <!-- inizio test -->
+            <div class="content">
+                    <form  method="post">
+                    <div class="form-group">
+                        <label for="id">ID</label>
+                        <input class="form-control" type="text" name="id" id="id" value="<?php echo $id ?>" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input  class="form-control" type="text" name="name" id="name" placeholder="Nome e cognome" value="<?php echo $name; ?>" required maxlength="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input  class="form-control" type="text" name="email" id="email" placeholder="emailaccount@youmail.com" value="<?php echo $email; ?>" required maxlength="100">
+                    </div>
+                    <!-- 
+                        ho aggiunto un btn per annulla che in POST richiama redirect via PHP
+
+                    <input class="btn btn-primary mb-2" type="submit" name="btn_save" value="Salva">
+                    <input class="btn btn-primary mb-2" type="submit" name="btn_cancel" value="Annulla">
+
+                    -->
+
+                    <!-- i btn sopra sono stati sostituiti da questo form group, con btnSave e
+                        un link con aspetto di btn per annulllare
+                    -->
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for "submit"></label>
+                        <div class="col-md-8">
+                            <button id="submit" name ="btn_save" class="btn btn-primary" value="1">Salva</button>
+                            <a href="index.php" id="cancel" name="cancel" class="btn btn-default">Annulla</a>
+                        </div>
+                    </div>
+                  </form>
+            </div>
+            <!-- fine test -->
+            
+            
         </div>
     </body>
 </html>

@@ -18,6 +18,9 @@ if (!isset($_SESSION['loggedin'])) {
         <nav class="navtop">
             <div>
                 <h1>Il mio sito</h1>
+                <a href="#"><i></i>Test 1</a>
+                <a href="#"><i></i>Test 2</a>
+                <a href="#"><i></i>Test 3</a>
                 <a href="profile.php"><i class="fas fa-user-circle"></i>Profilo</a>
                 <a href="logout.php"><i class="fas fa-sign-out"></i>Logout</a>
             </div>
@@ -26,5 +29,10 @@ if (!isset($_SESSION['loggedin'])) {
             <h2>Home page</h2>
             <p>Bentornato, <?=$_SESSION['name']?>!</p>
         </div>
+        
+        <div class="content">
+            <p><?php echo 'ciao';?></p>
+        </div>
+
     </bodY>
 </html>
