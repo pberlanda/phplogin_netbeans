@@ -41,6 +41,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
             session_regenerate_id();
             $_SESSION['loggedin'] = TRUE;
             $_SESSION['name'] = $_POST['username'];
+            $_SESSION['name'] = $id;
             $_SESSION['id'] = $id;
             // echo 'Welcome ' . $_SESSION['name'] . '!'; serve per test autenticazione
             header('Location: home.php');
